@@ -21,7 +21,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     for ch in plaintext:
         if ch.isalpha():
             code = ord(ch) + shift
-            if code > ord('Z' if ch.isupper() else 'z'):
+            if code > ord("Z" if ch.isupper() else "z"):
                 code -= 26
             ciphertext += chr(code)
         else:
@@ -48,13 +48,14 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     for ch in ciphertext:
         if ch.isalpha():
             code = ord(ch) - shift
-            if code < ord('A' if ch.isupper() else 'a'):
+            if code < ord("A" if ch.isupper() else "a"):
                 code += 26
             plaintext += chr(code)
         else:
             plaintext += ch
 
     return plaintext
+
 
 def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
     """

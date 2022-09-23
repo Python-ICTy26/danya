@@ -14,7 +14,7 @@ def is_prime(n: int) -> bool:
     False
     """
 
-    return n > 1 and all(n%i!=0 for i in range(2, int(n**0.5)+1))
+    return n > 1 and all(n % i != 0 for i in range(2, int(n**0.5) + 1))
 
 
 def gcd(a: int, b: int) -> int:
@@ -46,10 +46,10 @@ def generate_keypair(p: int, q: int) -> tp.Tuple[tp.Tuple[int, int], tp.Tuple[in
     elif p == q:
         raise ValueError("p and q cannot be equal")
 
-    n = p*q
+    n = p * q
     # PUT YOUR CODE HERE
 
-    phi = (p-1)*(q-1)
+    phi = (p - 1) * (q - 1)
     # PUT YOUR CODE HERE
 
     # Choose an integer e such that e and phi(n) are coprime
@@ -83,7 +83,7 @@ def decrypt(pk: tp.Tuple[int, int], ciphertext: tp.List[int]) -> str:
     # Unpack the key into its components
     key, n = pk
     # Generate the plaintext based on the ciphertext and key using a^b mod m
-    plain = [chr((char ** key) % n) for char in ciphertext]
+    plain = [chr((char**key) % n) for char in ciphertext]
     # Return the array of bytes as a string
     return "".join(plain)
 

@@ -11,10 +11,19 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     """
     ciphertext = ""
 
-    keyword = str(keyword*len(plaintext))[:len(plaintext)].lower()
+    keyword = str(keyword * len(plaintext))[: len(plaintext)].lower()
 
-    alf = [[chr(ord('a') + ord('a') + j + i - ord('z') - 1 if ord('a') + j + i > ord('z') else ord('a') + j + i) for j in
-          range(26)] for i in range(26)]
+    alf = [
+        [
+            chr(
+                ord("a") + ord("a") + j + i - ord("z") - 1
+                if ord("a") + j + i > ord("z")
+                else ord("a") + j + i
+            )
+            for j in range(26)
+        ]
+        for i in range(26)
+    ]
 
     for ich in range(len(plaintext)):
         ch = plaintext[ich]
@@ -45,18 +54,26 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     """
     plaintext = ""
 
-    keyword = str(keyword * len(ciphertext))[:len(ciphertext)].lower()
+    keyword = str(keyword * len(ciphertext))[: len(ciphertext)].lower()
 
     alf = [
-        [chr(ord('a') + ord('a') + j + i - ord('z') - 1 if ord('a') + j + i > ord('z') else ord('a') + j + i) for j in
-         range(26)] for i in range(26)]
+        [
+            chr(
+                ord("a") + ord("a") + j + i - ord("z") - 1
+                if ord("a") + j + i > ord("z")
+                else ord("a") + j + i
+            )
+            for j in range(26)
+        ]
+        for i in range(26)
+    ]
 
     for ich in range(len(ciphertext)):
         ch = ciphertext[ich]
         if ch.isalpha():
             kch = keyword[ich]
             kcode = alf[0].index(kch)
-            lastch = ''
+            lastch = ""
             for y in range(len(alf)):
                 if alf[y][kcode] == ch.lower():
                     lastch = alf[0][y]
