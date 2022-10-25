@@ -12,11 +12,11 @@ class Console(UI):
         self.screen = curses.initscr()
 
     def draw_borders(self) -> None:
-        """ Отобразить рамку. """
+        """Отобразить рамку."""
         self.screen.border("|", "|", "-", "-", "+", "+", "+", "+")
 
     def draw_grid(self) -> None:
-        """ Отобразить состояние клеток. """
+        """Отобразить состояние клеток."""
         num_rows, num_cols = self.screen.getmaxyx()
 
         mcol = num_cols // 2 - self.life.cols
@@ -37,5 +37,3 @@ class Console(UI):
             self.life.step()
             time.sleep(0.1)
         curses.endwin()
-
-
