@@ -24,14 +24,28 @@ class GitIndexEntry(tp.NamedTuple):
     flags: int
     name: str
 
+    # def __init__(self, ctime_, ctime_ns, mtime_s, mtime_n, dev, ino, mode, uid, gid, size, sha1, flags, name):
+    #     self.ctime_s = ctime_s
+    #     self.ctime_n = ctime_n
+    #     self.mtime_s = mtime_s
+    #     self.mtime_n = mtime_n
+    #     self.dev = dev
+    #     self.ino = ino
+    #     self.mode = mode
+    #     self.uid = uid
+    #     self.gid = gid
+    #     self.size = size
+    #     self.sha1 = sha1
+    #     self.flags = flags
+    #     self.name = name
+
     def pack(self) -> bytes:
-        # PUT YOUR CODE HERE
-        ...
+        print(*self)
+        return struct.pack('L3sd', *self)
 
     @staticmethod
     def unpack(data: bytes) -> "GitIndexEntry":
-        # PUT YOUR CODE HERE
-        ...
+        return GitIndexEntry('L3sd', *struct.unpack(data))
 
 
 def read_index(gitdir: pathlib.Path) -> tp.List[GitIndexEntry]:
