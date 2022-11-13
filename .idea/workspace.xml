@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e553b34-1a71-4f06-99da-0de1bbaad71b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs.egg-info/dependency_links.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs.egg-info/entry_points.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs.egg-info/entry_points.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs.egg-info/top_level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs/objects.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs/objects.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs/porcelain.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs/porcelain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs/refs.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs/refs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs/repo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/pyvcs/tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/pyvcs/tree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework04/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework04/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +183,7 @@
       <workItem from="1668104218538" duration="3129000" />
       <workItem from="1668117083434" duration="4713000" />
       <workItem from="1668262222467" duration="5000" />
-      <workItem from="1668356679028" duration="15355000" />
+      <workItem from="1668356679028" duration="16488000" />
     </task>
     <servers />
   </component>
