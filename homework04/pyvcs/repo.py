@@ -20,12 +20,8 @@ def repo_create(workdir: tp.Union[str, pathlib.Path]) -> pathlib.Path:
     if not workdir.is_dir():
         raise Exception(f"{workdir.name} is not a directory")
 
-    dir_name = os.environ.get("GIT_DIR") or '.git'
+    dir_name = os.environ.get("GIT_DIR") or ".git"
     path = workdir / dir_name
-
-    # if path.exists():
-    #     print('Reinitialized existing pyvcs repository')
-    #     return path
 
     try:
         path.mkdir(parents=True)
@@ -33,12 +29,15 @@ def repo_create(workdir: tp.Union[str, pathlib.Path]) -> pathlib.Path:
         (path / "refs" / "tags").mkdir(parents=True)
         (path / "objects").mkdir(parents=True)
     except FileExistsError:
-        print('exist')
+        print("exist")
 
-    with open(path / "HEAD", 'w') as head, open(path / "config", 'w') as config, open(path / "description", 'w') as description:
+    with open(path / "HEAD", "w") as head, open(path / "config", "w") as config, open(
+        path / "description", "w"
+    ) as description:
         head.write("ref: refs/heads/master\n")
-        config.write("[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = false\n")
+        config.write(
+            "[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = false\n"
+        )
         description.write("Unnamed pyvcs repository.\n")
 
     return path
-

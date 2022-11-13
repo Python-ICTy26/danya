@@ -1,0 +1,16 @@
+Index: homework03/life_console.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/homework03/life_console.py b/homework03/life_console.py
+--- a/homework03/life_console.py	
++++ b/homework03/life_console.py	
+@@ -37,3 +37,6 @@
+             self.life.step()
+             time.sleep(0.1)
+         curses.endwin()
++
++life = GameOfLife.from_file('grid.txt')
++Console(life).run()
+\ No newline at end of file
