@@ -1,6 +1,5 @@
-from setuptools import setup
-
 import pyvcs
+from setuptools import setup
 
 AUTHOR = "Dmitrii Sorokin"
 AUTHOR_EMAIL = "dementiy@yandex.ru"
@@ -12,6 +11,7 @@ setup(
     description="The stupid content tracker",
     author=AUTHOR,
     author_email=AUTHOR_EMAIL,
+    # test_suite="tests",
     packages=["pyvcs"],
     entry_points={"console_scripts": ["pyvcs = pyvcs.__main__:main"]},
     url=HOME_PAGE,

@@ -1,4 +1,5 @@
 import argparse
+import pathlib
 
 from pyvcs.index import ls_files, read_index, update_index
 from pyvcs.objects import cat_file, hash_object
@@ -9,9 +10,9 @@ from pyvcs.tree import commit_tree, write_tree
 
 
 def cmd_init(args: argparse.Namespace) -> None:
-    # TODO: Reinitialized existing pyvcs repository
-    gitdir = repo_create(args.path)
-    print(f"Initialized empty pyvcs repository in {gitdir.absolute()}")
+    basic_path = pathlib.Path(args.path or ".")
+    gitdir = repo_create(basic_path)
+    print(f"Initialized empty pyvcs repository in {basic_path.absolute()}")
 
 
 def cmd_hash_object(args: argparse.Namespace) -> None:
