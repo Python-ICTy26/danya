@@ -6,7 +6,8 @@ from unittest.mock import patch
 from pyfakefs.fake_filesystem_unittest import TestCase
 
 import pyvcs
-from pyvcs.index import GitIndexEntry, ls_files, read_index, update_index, write_index
+from pyvcs.index import (GitIndexEntry, ls_files, read_index, update_index,
+                         write_index)
 from pyvcs.repo import repo_create
 
 
