@@ -3,11 +3,9 @@ import pathlib
 import unittest
 from unittest.mock import patch
 
-from pyfakefs.fake_filesystem_unittest import TestCase
-
 import pyvcs
-from pyvcs.index import (GitIndexEntry, ls_files, read_index, update_index,
-                         write_index)
+from pyfakefs.fake_filesystem_unittest import TestCase
+from pyvcs.index import GitIndexEntry, ls_files, read_index, update_index, write_index
 from pyvcs.repo import repo_create
 
 
