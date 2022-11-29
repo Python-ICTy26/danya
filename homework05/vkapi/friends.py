@@ -28,7 +28,21 @@ def get_friends(
     :param fields: Список полей, которые нужно получить для каждого пользователя.
     :return: Список идентификаторов друзей пользователя или список пользователей.
     """
-    pass
+
+    try:
+        response = session.get(
+            "friends.get",
+            user_id=user_id,
+            count=count,
+            offset=offset,
+            fields=fields,
+            access_token=config.VK_CONFIG["access_token"],
+            v=config.VK_CONFIG["version"],
+        )
+        response_data = response.json()["response"]
+        return FriendsResponse(**response_data)
+    except Exception as e:
+        raise APIError.bad_request(message=str(e))
 
 
 class MutualFriends(tp.TypedDict):
@@ -46,15 +60,40 @@ def get_mutual(
     offset: int = 0,
     progress=None,
 ) -> tp.Union[tp.List[int], tp.List[MutualFriends]]:
-    """
-    Получить список идентификаторов общих друзей между парой пользователей.
 
-    :param source_uid: Идентификатор пользователя, чьи друзья пересекаются с друзьями пользователя с идентификатором target_uid.
-    :param target_uid: Идентификатор пользователя, с которым необходимо искать общих друзей.
-    :param target_uids: Cписок идентификаторов пользователей, с которыми необходимо искать общих друзей.
-    :param order: Порядок, в котором нужно вернуть список общих друзей.
-    :param count: Количество общих друзей, которое нужно вернуть.
-    :param offset: Смещение, необходимое для выборки определенного подмножества общих друзей.
-    :param progress: Callback для отображения прогресса.
-    """
-    pass
+    request_bundles = math.ceil(len(target_uids) / 100) if target_uids else 1
+
+    time_start = time.time()
+    count_request_bundles = 0
+    mutual_list = []
+
+    for request_bundle in range(request_bundles):
+        response = session.get(
+            "friends.getMutual",
+            source_uid=source_uid,
+            target_uid=target_uid,
+            target_uids=target_uids,
+            order=order,
+            count=count,
+            offset=request_bundle * 100 + offset,
+            progress=progress,
+        )
+        if response.status_code == 200:
+            response_data = response.json()["response"]
+            for mutual in response_data:
+                mutual_list.append(mutual)
+
+        count_request_bundles += 1
+
+        time_passed = time.time() - time_start
+        if time_passed < 1 and count_request_bundles >= 3:
+            count_request_bundles = 0
+            start = time.time()
+            time.sleep(1 - time_passed)
+
+    try:
+        mutual_list_formatted = [MutualFriends(**mutual) for mutual in mutual_list]  # type: ignore
+    except TypeError:
+        return mutual_list
+
+    return mutual_list_formatted
