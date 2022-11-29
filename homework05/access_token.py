@@ -16,7 +16,8 @@ def get_access_token(client_id: int, scope: str) -> None:
     """.replace(
         " ", ""
     )
-    webbrowser.open_new_tab(url)
+    print(url)
+    # webbrowser.open_new_tab(url)
 
 
 if __name__ == "__main__":
